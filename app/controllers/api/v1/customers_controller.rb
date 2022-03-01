@@ -7,9 +7,9 @@ class Api::V1::CustomersController < ApplicationController
     )
 
     if customer.save
-      render json: CustomerSerializer.new(customer)
+      render json: CustomerSerializer.new(customer), status: 200
     else
-      render json: {error: "Invalid customer information."}
+      render json: {error: "Invalid customer information."}, status: 400
     end
   end
 end

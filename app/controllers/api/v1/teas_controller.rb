@@ -8,9 +8,9 @@ class Api::V1::TeasController < ApplicationController
     )
 
     if tea.save
-      render json: TeaSerializer.new(tea)
+      render json: TeaSerializer.new(tea), status: 200
     else
-      render json: {error: "Invalid tea information."}
+      render json: {error: "Invalid tea information."}, status: 400
     end
   end
 end
