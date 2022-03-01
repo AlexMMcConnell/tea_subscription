@@ -14,15 +14,6 @@ class Api::V1::SubscriptionsController < ApplicationController
     end
   end
 
-  def show
-    customer = Customer.find(params[:id])
-    if customer
-      render json: SubscriptionSerializer.all(customer.subscriptions), success: "All current and previous subscriptions successfully loaded", status: 200
-    else
-      render json: {error: "Invalid customer ID"}, status: 400
-    end
-  end
-
   def update
     subscription = Subscription.find_by(customer_id: params[:customer_id], tea_id: params[:tea_id])
     if subscription && subscription.active == true
