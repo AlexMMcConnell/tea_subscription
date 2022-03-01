@@ -27,4 +27,38 @@ describe 'Customer API' do
     expect(customer_response[:data][:attributes][:address]).to eq(params[:address])
 
   end
+
+  it 'can return all subscriptions for given customer' do
+    customer = create(:customer)
+
+    create_list(:subscription, 3, customer: customer)
+    create(:subscription, customer: customer, active: false)
+
+    get "/api/v1/customers/#{customer.id}"
+
+    expect(response).to be_successful
+
+    customer_response = JSON.parse(response.body, symbolize_names: true)
+
+    expect(customer_response[:data]).to be_a Array
+
+    customer_subscriptions = customer_response[:data]
+
+    customer_subscriptions.each do |subscription|
+      expect(subscription).to have_key(:id)
+      expect(subscription[:id]).to be_a Integer
+
+      expect(subscription[:attributes]).to have_key(:customer_id)
+      expect(subscription[:attributes][:customer_id]).to be_a Integer
+
+      expect(subscription[:attributes]).to have_key(:tea_id)
+      expect(subscription[:attributes][:tea_id]).to be_a Integer
+
+      expect(subscription[:attributes]).to have_key(:active)
+      expect(subscription[:attributes][:active]).to be_in([true, false])
+
+      expect(subscription[:attributes]).to have_key(:frequency)
+      expect(subscription[:attributes][:frequency]).to be_a String
+    end
+  end
 end
