@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2022_03_01_163652) do
 
   create_table "subscriptions", force: :cascade do |t|
     t.string "title"
+    t.boolean "active"
+    t.string "frequency"
     t.bigint "customer_id"
     t.bigint "tea_id"
     t.datetime "created_at", null: false
