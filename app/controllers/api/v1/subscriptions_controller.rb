@@ -27,6 +27,7 @@ class Api::V1::SubscriptionsController < ApplicationController
     subscription = Subscription.find_by(customer_id: params[:customer_id], tea_id: params[:tea_id])
     if subscription && subscription.active == true
       subscription.active = false
+      subscription.save
       render json: SubscriptionSerializer.new(subscription), success: "User successfully unsubscribed", status: 200
     elsif subscription && subscription.active == false
       render json: {error: "Customer already unsubscribed"}, status: 400
