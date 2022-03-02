@@ -1,24 +1,34 @@
-# README
+# Tea Subscription
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a sample application for Turing's Backend Take-Home Practice. More details can be found [here.](https://mod4.turing.edu/projects/take_home/take_home_be)
 
-Things you may want to cover:
+### <ins>Project Board</ins>
 
-* Ruby version
+[Project Board](https://github.com/AlexMMcConnell/tea_subscription/projects/1)
 
-* System dependencies
+### <ins>Setup</ins>
+1. Fork and Clone the repo
+2. Install gem packages: `bundle install`
+3. Setup the database: `rails db:{drop,create,migrate}`
+4. Run `bundle exec rspec` to test
 
-* Configuration
+### <ins>Endpoints</ins>
 
-* Database creation
+[Endpoints](https://github.com/alexmmcconnell/tea_subscription/blob/main/endpoints.md)
 
-* Database initialization
+### <ins>Technologies</ins>
 
-* How to run the test suite
+#### Versions
+- Ruby 2.7.2
+- Rails 5.2.5
 
-* Services (job queues, cache servers, search engines, etc.)
+#### Testing
+![Capybara][Capybara-img]
+![Launchy][Launchy-img]
+![Pry][Pry-img]
+![RSPEC][RSPEC-img]
+![Shoulda Matchers][Shoulda Matchers-img]
+![Simplecov][Simplecov-img]
 
-* Deployment instructions
-
-* ...
+#### Languages
+![Ruby][Ruby-img]
