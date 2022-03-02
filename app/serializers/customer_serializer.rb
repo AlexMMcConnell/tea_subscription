@@ -3,6 +3,7 @@ class CustomerSerializer
     { data:
       {
       id: customer.id,
+      type: "customer"
       attributes: {
         name: customer.name,
         email: customer.email,

@@ -6,6 +6,7 @@ class SubscriptionSerializer
         attributes: {
           customer_id: subscription.customer_id,
           tea_id: subscription.tea_id,
+          title: subscription.title,
           active: subscription.active,
           frequency: subscription.frequency
         }
@@ -15,17 +16,21 @@ class SubscriptionSerializer
 
   def self.all(subscriptions)
     { data:
-      subscriptions.map do |subscription|
-        {
-          id: subscription.id,
-          attributes: {
-            customer_id: subscription.customer_id,
-            tea_id: subscription.tea_id,
-            active: subscription.active,
-            frequency: subscription.frequency
+      {
+        id: subscription.first.user_id,
+        type: "customer",
+        subscriptions: subscriptions.map do |subscription|
+          {
+            id: subscription.id,
+            attributes: {
+              customer_id: subscription.customer_id,
+              tea_id: subscription.tea_id,
+              active: subscription.active,
+              frequency: subscription.frequency
+            }
           }
-        }
-      end
+        end
+      }
     }
   end
 end

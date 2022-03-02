@@ -3,6 +3,7 @@ class TeaSerializer
     { data:
       {
       id: tea.id,
+      type: "tea",
       attributes: {
         name: tea.name,
         description: tea.description,
