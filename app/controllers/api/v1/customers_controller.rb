@@ -16,7 +16,7 @@ class Api::V1::CustomersController < ApplicationController
   def show
     customer = Customer.find(customer_params[:id])
     if customer
-      render json: SubscriptionSerializer.all(customer.subscriptions), success: "All current and previous subscriptions successfully loaded", status: 200
+      render json: SubscriptionSerializer.all(customer.subscriptions), status: 200
     else
       render json: {error: "Invalid customer ID"}, status: 400
     end

@@ -1,5 +1,5 @@
 class SubscriptionSerializer
-  def self.new(subscription)
+  def self.new(subscription, status)
     { data:
       {
         id: subscription.id,
@@ -10,7 +10,8 @@ class SubscriptionSerializer
           active: subscription.active,
           frequency: subscription.frequency
         }
-      }
+      },
+      success: "Subscription #{status} successfully."
     }
   end
 
@@ -30,7 +31,8 @@ class SubscriptionSerializer
             }
           }
         end
-      }
+      },
+      success: "All current and previous subscriptions successfully loaded"
     }
   end
 end

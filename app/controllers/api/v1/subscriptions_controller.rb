@@ -8,7 +8,7 @@ class Api::V1::SubscriptionsController < ApplicationController
       frequency: "monthly")
 
     if subscription.save
-      render json: SubscriptionSerializer.new(subscription), success: "User successfully subscribed", status: 200
+      render json: SubscriptionSerializer.new(subscription, "created"), success: "User successfully subscribed", status: 200
     else
       render json: {error: "Invalid customer or tea ID"}, status: 400
     end
@@ -19,7 +19,7 @@ class Api::V1::SubscriptionsController < ApplicationController
     if subscription && subscription.active == true
       subscription.active = false
       subscription.save
-      render json: SubscriptionSerializer.new(subscription), success: "User successfully unsubscribed", status: 200
+      render json: SubscriptionSerializer.new(subscription, "updated"), status: 200
     elsif subscription && subscription.active == false
       render json: {error: "Customer already unsubscribed"}, status: 400
     else

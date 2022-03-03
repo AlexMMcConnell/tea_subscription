@@ -9,7 +9,8 @@ class CustomerSerializer
         email: customer.email,
         address: customer.address
         }
-      }
+      },
+      success: "New customer successfully created."
     }
   end
 end

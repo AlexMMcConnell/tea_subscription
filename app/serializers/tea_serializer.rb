@@ -10,7 +10,8 @@ class TeaSerializer
         temperature: tea.temperature,
         brew_time: tea.brew_time
         },
-      }
+      },
+      success: "New tea successfully created."
     }
   end
 end
