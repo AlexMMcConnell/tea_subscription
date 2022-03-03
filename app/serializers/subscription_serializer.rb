@@ -17,7 +17,7 @@ class SubscriptionSerializer
   def self.all(subscriptions)
     { data:
       {
-        id: subscription.first.user_id,
+        id: subscriptions.first.customer_id,
         type: "customer",
         subscriptions: subscriptions.map do |subscription|
           {

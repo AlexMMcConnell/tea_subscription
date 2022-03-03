@@ -40,9 +40,9 @@ describe 'Customer API' do
 
     customer_response = JSON.parse(response.body, symbolize_names: true)
 
-    expect(customer_response[:data]).to be_a Array
+    expect(customer_response[:data]).to be_a Hash
 
-    customer_subscriptions = customer_response[:data]
+    customer_subscriptions = customer_response[:data][:subscriptions]
 
     customer_subscriptions.each do |subscription|
       expect(subscription).to have_key(:id)
