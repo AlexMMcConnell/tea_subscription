@@ -1,6 +1,6 @@
 # Tea Subscription
 
-This is a sample application for Turing's Backend Take-Home Practice. More details can be found [here.](https://mod4.turing.edu/projects/take_home/take_home_be)
+This is a sample tea subscription application for Turing's Backend Take-Home Practice. More details can be found [here.](https://mod4.turing.edu/projects/take_home/take_home_be)
 
 ### <ins>Project Board</ins>
 
