@@ -1,10 +1,10 @@
 class Api::V1::TeasController < ApplicationController
   def create
     tea = Tea.new(
-      name: params[:name],
-      description: params[:description],
-      temperature: params[:temperature],
-      brew_time: params[:brew_time]
+      name: tea_params[:name],
+      description: tea_params[:description],
+      temperature: tea_params[:temperature],
+      brew_time: tea_params[:brew_time]
     )
 
     if tea.save
@@ -12,5 +12,11 @@ class Api::V1::TeasController < ApplicationController
     else
       render json: {error: "Invalid tea information."}, status: 400
     end
+  end
+
+private
+
+  def tea_params
+    params.permit(:name, :description, :temperature, :brew_time)
   end
 end

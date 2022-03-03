@@ -1,9 +1,9 @@
 class Api::V1::SubscriptionsController < ApplicationController
   def create
     subscription = Subscription.new(
-      customer_id: params[:customer_id],
-      tea_id: params[:tea_id],
-      title: Subscription.title(params),
+      customer_id: subscription_params[:customer_id],
+      tea_id: subscription_params[:tea_id],
+      title: Subscription.title(subscription_params),
       active: true,
       frequency: "monthly")
 
@@ -15,7 +15,7 @@ class Api::V1::SubscriptionsController < ApplicationController
   end
 
   def update
-    subscription = Subscription.find_by(customer_id: params[:customer_id], tea_id: params[:tea_id])
+    subscription = Subscription.find_by(customer_id: subscription_params[:customer_id], tea_id: subscription_params[:tea_id])
     if subscription && subscription.active == true
       subscription.active = false
       subscription.save
@@ -25,5 +25,11 @@ class Api::V1::SubscriptionsController < ApplicationController
     else
       render json: {error: "Invalid customer or tea ID"}, status: 400
     end
+  end
+
+private
+
+  def subscription_params
+    params.permit(:customer_id, :tea_id)
   end
 end
