@@ -4,7 +4,7 @@
 - POST /api/v1/customers
 - GET /api/v1/customers/:id
 
-#### `POST /api/v1/users`
+#### `POST /api/v1/customers`
 ##### Required Query Parameters:
 - `name={string}`
 - `email={string}`
