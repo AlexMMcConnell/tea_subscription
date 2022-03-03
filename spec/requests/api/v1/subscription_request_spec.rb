@@ -26,7 +26,7 @@ describe 'Subscription API' do
     expect(subscription[:data][:attributes][:frequency]).to be_a String
   end
 
-  it 'can remove a customer from subscriptions' do
+  it 'can unsubscribe a customer from a subscription' do
     customer = create(:customer)
     tea = create(:tea)
 
