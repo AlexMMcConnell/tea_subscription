@@ -20,7 +20,8 @@
            "name": "FirstName LastName",
            "address": "1234 Main St, Denver, CO, 80200"
        }
-   }
+   },
+   "success": "success message"
 }
 ```
 
@@ -41,8 +42,9 @@
               "frequency": "monthly"
             }
           ]
-        }
-    }
+     },
+     "success": "success message"
+    
 }
  ```
 
@@ -68,7 +70,8 @@
                 "temperature": "125 C",
                 "brew_time": 15,
             }
-        }
+        },
+    "success": "success message"
 }
 ```
 
@@ -93,7 +96,8 @@
           "active": true,
           "frequency": "monthly"
         }
-      }
+      },
+      "success": "success message"
   }
 ```
 
@@ -113,7 +117,8 @@
           "title": "customer's tea subscription",
           "active": false,
           "frequency": "monthly"
-        }
-      }
+       }
+     },
+    "success": "success message"
   }
 ```
